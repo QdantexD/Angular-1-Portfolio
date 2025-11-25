@@ -124,6 +124,15 @@ Visita `/demo` para ver un showcase completo de todas las características:
 - Tour guiado
 - Demostración de todas las características
 
+### 🌐 Demo en Vivo (GitHub Pages)
+
+Si el proyecto está desplegado en GitHub Pages, puedes verlo en:
+```
+https://[tu-usuario].github.io/Angular-1/
+```
+
+**Nota**: Reemplaza `[tu-usuario]` con tu nombre de usuario de GitHub.
+
 ## 📦 Scripts Disponibles
 
 - `npm start` - Inicia el servidor de desarrollo
@@ -185,11 +194,17 @@ Angular-1/
 │   ├── styles.scss              # Estilos globales
 │   ├── index.html
 │   └── main.ts
+├── .github/
+│   └── workflows/
+│       └── deploy.yml           # GitHub Actions - Deploy automático
 ├── CHANGELOG.md                 # Historial de cambios
 ├── DEMO_GUIDE.md                # Guía de demostración
 ├── SECURITY.md                  # Notas de seguridad
 ├── AUTHOR.md                    # Información completa del desarrollador
+├── GITHUB_PAGES.md              # Guía de despliegue en GitHub Pages
 ├── README.md                    # Este archivo (documentación principal)
+├── 404.html                     # Manejo de rutas para GitHub Pages
+├── .nojekyll                    # Desactiva Jekyll en GitHub Pages
 ├── package.json                 # Dependencias
 ├── angular.json                 # Configuración de Angular
 └── tsconfig.json                # Configuración de TypeScript
@@ -274,13 +289,81 @@ Todas las configuraciones se guardan automáticamente en `localStorage`:
 
 ## 🚀 Despliegue
 
-Para compilar para producción:
+### Compilar para Producción Local
 
 ```bash
 npm run build
 ```
 
 Los archivos compilados estarán en la carpeta `dist/angular-personalization-app`
+
+### Despliegue en GitHub Pages
+
+El proyecto está completamente configurado para desplegarse en GitHub Pages. Tienes dos opciones:
+
+#### 🚀 Opción 1: Deploy Automático (Recomendado)
+
+1. **Habilita GitHub Pages**:
+   - Ve a tu repositorio en GitHub
+   - Settings > Pages
+   - En "Source", selecciona **"GitHub Actions"**
+   - Guarda los cambios
+
+2. **Haz push a la rama main**:
+   ```bash
+   git add .
+   git commit -m "Preparar para GitHub Pages"
+   git push origin main
+   ```
+
+3. **El workflow se ejecutará automáticamente** y desplegará tu aplicación en:
+   ```
+   https://[tu-usuario].github.io/Angular-1/
+   ```
+
+#### 📦 Opción 2: Deploy Manual
+
+```bash
+npm run deploy:gh-pages
+```
+
+Este comando compila y despliega la aplicación en la rama `gh-pages`.
+
+**Nota**: Si tu repositorio tiene un nombre diferente a "Angular-1", actualiza el `baseHref` en `angular.json` y `package.json`.
+
+📖 **Para más detalles, consulta [DEPLOY.md](DEPLOY.md)**
+
+### Desplegar en GitHub Pages
+
+El proyecto está configurado para GitHub Pages. Para desplegar:
+
+#### Opción 1: Deploy Automático (Recomendado)
+
+1. **Habilita GitHub Pages** en tu repositorio (Settings > Pages)
+2. **Selecciona "GitHub Actions"** como fuente
+3. **Haz push** a la rama `main` - el deploy será automático
+
+El workflow de GitHub Actions (`.github/workflows/deploy.yml`) se ejecutará automáticamente.
+
+#### Opción 2: Deploy Manual
+
+```bash
+# Instalar herramienta (solo la primera vez)
+npm install -g angular-cli-ghpages
+
+# Deploy
+npm run deploy:gh-pages
+```
+
+#### Configuración
+
+- **URL base**: `/Angular-1/` (ajusta según tu repositorio)
+- **URL base**: `/Angular-1/` (ajusta según tu repositorio)
+- **Archivo de configuración**: Ver `GITHUB_PAGES.md` para detalles completos
+
+**📖 Guías de despliegue**:
+- **⚡ Quick Start**: `DEPLOY_QUICK_START.md` - Despliegue rápido en 3 pasos
+- **📚 Guía completa**: `GITHUB_PAGES.md` - Instrucciones detalladas
 
 ## 📝 Notas Técnicas
 
@@ -342,6 +425,9 @@ Los archivos compilados estarán en la carpeta `dist/angular-personalization-app
 - **CHANGELOG.md**: Historial completo de cambios y versiones
 - **DEMO_GUIDE.md**: Guía detallada para demostración
 - **SECURITY.md**: Notas sobre seguridad y vulnerabilidades
+- **DEPLOY.md**: Guía completa de despliegue en GitHub Pages
+- **GITHUB_PAGES_SETUP.md**: Configuración rápida de GitHub Pages (5 minutos)
+- **AUTHOR.md**: Información completa del desarrollador
 
 ## 📋 Información del Proyecto
 

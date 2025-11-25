@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# GitHub Pages (mantener dist para deploy)
+# /dist
+
 # Node
 /node_modules
 npm-debug.log
@@ -40,4 +43,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# GitHub Pages
+.angular-cli-ghpages
 
