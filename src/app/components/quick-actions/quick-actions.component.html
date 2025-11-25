@@ -1,0 +1,23 @@
+<div class="quick-actions" [class.open]="isOpen">
+  <div class="quick-actions-list">
+    <button 
+      *ngFor="let action of displayActions"
+      mat-fab
+      [color]="action.color || 'primary'"
+      [matTooltip]="action.label"
+      (click)="onActionClick(action)"
+      class="quick-action-button">
+      <mat-icon>{{ action.icon }}</mat-icon>
+    </button>
+  </div>
+  
+  <button 
+    mat-fab
+    color="primary"
+    class="toggle-button"
+    (click)="isOpen = !isOpen"
+    [matTooltip]="isOpen ? 'Cerrar acciones rápidas' : 'Abrir acciones rápidas'">
+    <mat-icon>{{ isOpen ? 'close' : 'add' }}</mat-icon>
+  </button>
+</div>
+

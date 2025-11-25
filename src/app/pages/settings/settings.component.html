@@ -1,0 +1,112 @@
+<div class="settings-container fade-in">
+  <div class="settings-header">
+    <h1>Configuración</h1>
+    <p class="subtitle">Personaliza tu experiencia</p>
+  </div>
+
+  <form [formGroup]="settingsForm">
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>Apariencia</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="setting-group">
+          <label>Tema</label>
+          <mat-button-toggle-group formControlName="theme" (change)="onThemeChange($event.value)">
+            <mat-button-toggle value="light">
+              <mat-icon>light_mode</mat-icon>
+              Claro
+            </mat-button-toggle>
+            <mat-button-toggle value="dark">
+              <mat-icon>dark_mode</mat-icon>
+              Oscuro
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="setting-group">
+          <label>Layout</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="layout">
+              <mat-option value="grid">Grid</mat-option>
+              <mat-option value="list">Lista</mat-option>
+              <mat-option value="compact">Compacto</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="setting-group">
+          <label>Densidad</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="density">
+              <mat-option value="comfortable">Cómodo</mat-option>
+              <mat-option value="compact">Compacto</mat-option>
+              <mat-option value="spacious">Espacioso</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>Preferencias</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="setting-group">
+          <div class="toggle-setting">
+            <div>
+              <label>Animaciones</label>
+              <p class="setting-description">Habilita animaciones en la interfaz</p>
+            </div>
+            <mat-slide-toggle formControlName="animations"></mat-slide-toggle>
+          </div>
+
+          <div class="toggle-setting">
+            <div>
+              <label>Notificaciones</label>
+              <p class="setting-description">Recibe notificaciones del sistema</p>
+            </div>
+            <mat-slide-toggle formControlName="notifications"></mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <label>Idioma</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="language">
+              <mat-option value="es">Español</mat-option>
+              <mat-option value="en">English</mat-option>
+              <mat-option value="fr">Français</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="setting-group">
+          <label>Zona Horaria</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="timezone">
+              <mat-option value="America/Mexico_City">America/Mexico_City</mat-option>
+              <mat-option value="America/New_York">America/New_York</mat-option>
+              <mat-option value="Europe/Madrid">Europe/Madrid</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="setting-group">
+          <label>Formato de Fecha</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="dateFormat">
+              <mat-option value="DD/MM/YYYY">DD/MM/YYYY</mat-option>
+              <mat-option value="MM/DD/YYYY">MM/DD/YYYY</mat-option>
+              <mat-option value="YYYY-MM-DD">YYYY-MM-DD</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+  <app-theme-customizer></app-theme-customizer>
+</div>
+

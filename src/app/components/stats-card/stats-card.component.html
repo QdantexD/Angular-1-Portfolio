@@ -1,0 +1,22 @@
+<mat-card 
+  class="stats-card" 
+  [class]="'color-' + color"
+  [class.clickable]="clickable"
+  (click)="onCardClick()">
+  <mat-card-content>
+    <div class="stats-content">
+      <div class="stats-info">
+        <div class="stats-title">{{ title }}</div>
+        <div class="stats-value">{{ displayValue || value }}</div>
+        <div class="stats-change" [class]="changeClass">
+          <mat-icon>{{ changeIcon }}</mat-icon>
+          <span>{{ change >= 0 ? '+' : '' }}{{ change }}%</span>
+        </div>
+      </div>
+      <div class="stats-icon">
+        <mat-icon [class]="'icon-' + color">{{ icon }}</mat-icon>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

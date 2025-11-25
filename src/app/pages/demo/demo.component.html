@@ -1,0 +1,126 @@
+<div class="demo-container fade-in">
+  <div class="demo-header">
+    <h1>🎨 Showcase de Características</h1>
+    <p class="subtitle">Descubre todas las funcionalidades avanzadas de esta aplicación</p>
+  </div>
+
+  <!-- Controles rápidos -->
+  <div class="demo-controls">
+    <button mat-raised-button color="primary" (click)="toggleTheme()">
+      <mat-icon>{{ currentTheme === 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      Tema {{ currentTheme === 'light' ? 'Oscuro' : 'Claro' }}
+    </button>
+    
+    <mat-button-toggle-group [value]="currentLayout" (change)="changeLayout($event.value)">
+      <mat-button-toggle value="grid">
+        <mat-icon>grid_view</mat-icon>
+        Grid
+      </mat-button-toggle>
+      <mat-button-toggle value="list">
+        <mat-icon>view_list</mat-icon>
+        Lista
+      </mat-button-toggle>
+      <mat-button-toggle value="compact">
+        <mat-icon>view_module</mat-icon>
+        Compacto
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <button mat-raised-button color="accent" (click)="showTour()">
+      <mat-icon>tour</mat-icon>
+      Iniciar Tour
+    </button>
+  </div>
+
+  <!-- Grid de características -->
+  <div class="features-grid">
+    <mat-card 
+      *ngFor="let feature of features" 
+      class="feature-card hover-lift"
+      [class]="'color-' + feature.color"
+      (click)="onFeatureClick(feature)">
+      <mat-card-header>
+        <div mat-card-avatar class="feature-icon" [class]="'icon-' + feature.color">
+          <mat-icon>{{ feature.icon }}</mat-icon>
+        </div>
+        <mat-card-title>{{ feature.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ feature.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary">
+          <mat-icon>arrow_forward</mat-icon>
+          Probar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- Sección de demostración -->
+  <div class="demo-section">
+    <h2>💡 Características Destacadas</h2>
+    
+    <div class="highlight-cards">
+      <mat-card class="highlight-card glass-effect">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>speed</mat-icon>
+            Rendimiento
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Aplicación optimizada con lazy loading, animaciones GPU-accelerated y código modular.</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="highlight-card glass-effect">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>palette</mat-icon>
+            Personalización
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Completo sistema de personalización con temas, colores, layouts y configuraciones avanzadas.</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="highlight-card glass-effect">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>devices</mat-icon>
+            Responsive
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Diseño completamente responsive que se adapta a cualquier dispositivo y tamaño de pantalla.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Atajos de teclado -->
+  <div class="demo-section">
+    <h2>⌨️ Atajos de Teclado</h2>
+    <div class="shortcuts-grid">
+      <div class="shortcut-item">
+        <kbd>Ctrl</kbd> + <kbd>K</kbd>
+        <span>Command Palette</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Esc</kbd>
+        <span>Cerrar modales</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>↑</kbd> <kbd>↓</kbd>
+        <span>Navegar comandos</span>
+      </div>
+      <div class="shortcut-item">
+        <kbd>Enter</kbd>
+        <span>Ejecutar comando</span>
+      </div>
+    </div>
+  </div>
+</div>
+

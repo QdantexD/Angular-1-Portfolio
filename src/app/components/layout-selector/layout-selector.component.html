@@ -1,0 +1,11 @@
+<div class="layout-selector">
+  <button 
+    *ngFor="let layout of layouts"
+    mat-icon-button
+    [class.active]="currentLayout === layout.value"
+    (click)="selectLayout(layout.value)"
+    [matTooltip]="layout.label">
+    <mat-icon>{{ layout.icon }}</mat-icon>
+  </button>
+</div>
+

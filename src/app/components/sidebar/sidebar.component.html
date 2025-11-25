@@ -1,0 +1,22 @@
+<div class="sidebar-container" [class.sidebar-open]="isOpen">
+  <div class="sidebar">
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <h2>Menú</h2>
+      </div>
+
+      <mat-nav-list>
+        <a mat-list-item 
+           *ngFor="let item of menuItems" 
+           [routerLink]="item.route"
+           [routerLinkActive]="'active'"
+           [class.active]="isActive(item.route)">
+          <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+          <span matLine>{{ item.label }}</span>
+          <span *ngIf="item.badge" [matBadge]="item.badge" matBadgeOverlap="false"></span>
+        </a>
+      </mat-nav-list>
+    </div>
+  </div>
+</div>
+

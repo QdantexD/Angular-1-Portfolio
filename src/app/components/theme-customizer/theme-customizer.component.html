@@ -1,0 +1,55 @@
+<div class="theme-customizer" [class.open]="isOpen">
+  <button mat-fab class="toggle-button" (click)="toggle()" [matTooltip]="isOpen ? 'Cerrar' : 'Personalizar Tema'">
+    <mat-icon>{{ isOpen ? 'close' : 'palette' }}</mat-icon>
+  </button>
+
+  <div class="customizer-panel" *ngIf="isOpen">
+    <div class="panel-header">
+      <h3>Personalizar Tema</h3>
+    </div>
+
+    <div class="panel-content">
+      <div class="color-section">
+        <h4>Colores Preset</h4>
+        <div class="preset-colors">
+          <button 
+            *ngFor="let preset of presetColors" 
+            class="preset-button"
+            [style.background]="preset.primary"
+            (click)="applyPreset(preset)"
+            [matTooltip]="preset.name">
+          </button>
+        </div>
+      </div>
+
+      <div class="color-section">
+        <h4>Colores Personalizados</h4>
+        
+        <div class="color-input-group">
+          <label>Primario</label>
+          <app-color-picker 
+            [color]="colors.primary"
+            (colorChange)="updateColor('primary', $event)">
+          </app-color-picker>
+        </div>
+
+        <div class="color-input-group">
+          <label>Secundario</label>
+          <app-color-picker 
+            [color]="colors.secondary"
+            (colorChange)="updateColor('secondary', $event)">
+          </app-color-picker>
+        </div>
+
+        <div class="color-input-group">
+          <label>Acento</label>
+          <app-color-picker 
+            [color]="colors.accent"
+            (colorChange)="updateColor('accent', $event)">
+          </app-color-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

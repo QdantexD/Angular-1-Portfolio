@@ -1,0 +1,15 @@
+.layout-selector {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+
+  button {
+    &.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+  }
+}
+

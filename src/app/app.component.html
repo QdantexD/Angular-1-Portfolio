@@ -1,0 +1,16 @@
+<div class="app-container" [class.sidebar-open]="sidebarOpen">
+  <app-header (toggleSidebar)="toggleSidebar()"></app-header>
+  
+  <div class="main-content-wrapper">
+    <app-sidebar [isOpen]="sidebarOpen"></app-sidebar>
+    
+    <main class="main-content" [class.sidebar-open]="sidebarOpen">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <app-theme-customizer></app-theme-customizer>
+  <app-command-palette></app-command-palette>
+  <app-quick-actions></app-quick-actions>
+</div>
+

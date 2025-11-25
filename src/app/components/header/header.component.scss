@@ -1,0 +1,61 @@
+.header-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+  color: white;
+  padding: 0 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  }
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle,
+.user-button {
+  margin-left: 8px;
+}
+
+.user-menu-header {
+  padding: 16px;
+  min-width: 200px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  
+  strong {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .user-email {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+}
+

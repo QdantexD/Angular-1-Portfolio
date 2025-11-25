@@ -1,0 +1,28 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--background-color);
+  transition: var(--transition);
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  transition: var(--transition);
+  margin-left: 0;
+
+  @media (min-width: 768px) {
+    &.sidebar-open {
+      margin-left: 280px;
+    }
+  }
+}
+

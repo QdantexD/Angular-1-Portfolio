@@ -1,0 +1,127 @@
+.stats-card {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  &.clickable {
+    cursor: pointer;
+    
+    &:active {
+      transform: translateY(-4px) scale(0.98);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &.clickable {
+      .stats-icon mat-icon {
+        transform: scale(1.2) rotate(5deg);
+      }
+    }
+  }
+
+  &.color-primary {
+    border-left-color: var(--primary-color);
+  }
+
+  &.color-accent {
+    border-left-color: var(--accent-color);
+  }
+
+  &.color-warn {
+    border-left-color: #f44336;
+  }
+}
+
+.stats-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-info {
+  flex: 1;
+}
+
+.stats-title {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-value {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.stats-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &.positive {
+    color: #4caf50;
+  }
+
+  &.negative {
+    color: #f44336;
+  }
+}
+
+.stats-icon {
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    opacity: 0.2;
+    color: var(--primary-color);
+  }
+
+  .icon-primary {
+    color: var(--primary-color);
+  }
+
+  .icon-accent {
+    color: var(--accent-color);
+  }
+
+  .icon-warn {
+    color: #f44336;
+  }
+}
+

@@ -1,0 +1,39 @@
+<div class="command-palette-overlay" *ngIf="isOpen" (click)="close()">
+  <div class="command-palette" (click)="$event.stopPropagation()">
+    <div class="command-header">
+      <mat-icon>search</mat-icon>
+      <input 
+        type="text" 
+        class="command-input"
+        placeholder="Buscar comandos... (Ctrl+K)"
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        autofocus>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <div class="command-list">
+      <div 
+        *ngFor="let command of filteredCommands; let i = index"
+        class="command-item"
+        [class.selected]="i === selectedIndex"
+        (click)="executeCommand(command)"
+        (mouseenter)="selectedIndex = i">
+        <mat-icon>{{ command.icon }}</mat-icon>
+        <div class="command-info">
+          <span class="command-label">{{ command.label }}</span>
+          <span class="command-category">{{ command.category }}</span>
+        </div>
+        <kbd class="command-shortcut">↵</kbd>
+      </div>
+      
+      <div *ngIf="filteredCommands.length === 0" class="command-empty">
+        <mat-icon>search_off</mat-icon>
+        <p>No se encontraron comandos</p>
+      </div>
+    </div>
+  </div>
+</div>
+
