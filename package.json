@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:gh-pages": "ng build --configuration production --base-href=/Angular-1/",
+    "build:gh-pages": "ng build --configuration production --base-href=/Angular-1-Portfolio/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy:gh-pages": "npm run build:gh-pages && copy 404.html dist\\angular-personalization-app\\404.html && copy .nojekyll dist\\angular-personalization-app\\.nojekyll && npx angular-cli-ghpages --dir=dist/angular-personalization-app --cname= --no-silent"

@@ -49,7 +49,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/Angular-1/",
+              "baseHref": "/Angular-1-Portfolio/",
               "budgets": [
                 {
                   "type": "initial",
