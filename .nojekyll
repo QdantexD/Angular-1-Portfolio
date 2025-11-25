@@ -1,4 +1,2 @@
 # GitHub Pages - No Jekyll
-# Este archivo evita que GitHub Pages procese el sitio con Jekyll
-# Necesario para aplicaciones Angular SPA
-
+# Este archivo le dice a GitHub Pages que no procese el sitio con Jekyll
